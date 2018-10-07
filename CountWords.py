@@ -7,8 +7,7 @@ def CountWord(Text):
 
     """
 
-    # Count the Words with the Frequency from the Text list
-    # print(Text[1]) -- check the structure of the Text var
+    # print(type(Text)) -- check the structure of the Text var
 
     # STEP:1 Initialize the word_count dictionary
     word_count ={}
@@ -18,9 +17,11 @@ def CountWord(Text):
         Text = Text + "."
     
     # STEP:3 Split the Text in list of Lines? 
+    # --------------------------------------------------------------------------------------------
     # - could be used if Text need to be split into lines 
     # - Here not required as directly we can remove specific chars and get the final list of words
-    
+    # --------------------------------------------------------------------------------------------
+
     # lines_of_Text = list(Text.splitlines())
     # lines_of_Text = [x for x in lines_of_Text if x!= ''] # remove '' elem from the list
     # print(lines_of_Text)
@@ -32,7 +33,7 @@ def CountWord(Text):
 
     # STEP:5 remove specific characters from the flat list of words
     final_flat_list_of_words = re.sub('[-.\,:;/]', '', Text).split()
-    #print(final_flat_list_of_words)
+    # print(final_flat_list_of_words)
 
     # STEP:6 record the number of Occurence of the words from the "All text" list final_flat_list_of_words
     for word in final_flat_list_of_words:
@@ -48,17 +49,17 @@ def CountWord(Text):
 # 1. Program Begin here..
 if(__name__ == "__main__"):
 
-    # Read the text from the file Poem.txt
+    # 2. Read the text from the file Poem.txt
     TextFile = open("C:\\Users\\Prateek\\Anaconda3\\CodePrateek\\PythonBibleCode\\PythonBible\\Poem.txt", "r")
     Text = TextFile.read()
     TextFile.close()
 
-    # Call to CountWords function
+    # 3. Call to CountWords function
     words_dictionary  = CountWord(Text)
     key_words = words_dictionary.keys()
     sorted(words_dictionary)
 
-    # Print output
+    # 4. Print output
     for word in key_words:
         print(word, words_dictionary[word])
 
